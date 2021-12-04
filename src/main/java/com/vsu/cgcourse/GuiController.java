@@ -46,9 +46,6 @@ public class GuiController {
     private Button changeButton;
 
     @FXML
-    private ImageView imageLeft;
-
-    @FXML
     private Button saveButton;
 
     @FXML
@@ -101,15 +98,16 @@ public class GuiController {
         changeButton.setOnAction(event -> {
             if(mouseClick==0){
                 mouseClick++;
-                canvas.getGraphicsContext2D().setStroke(Color.PINK);
-                imageLeft.setImage(new Image(URL + "\\iLoveAnime.jpg"));
+                canvas.getGraphicsContext2D().setStroke(Color.BLACK);
                 imageTop.setImage(new Image(URL + "\\gubka.jpg"));
+                anchorPane.setStyle("-fx-background-color: #FFFFFF");
+
             }
             else{
                 mouseClick--;
-                canvas.getGraphicsContext2D().setStroke(Color.BLACK);
-                imageLeft.setImage(new Image(URL + "\\iLoveBebra.png"));
+                canvas.getGraphicsContext2D().setStroke(Color.PINK);
                 imageTop.setImage(new Image(URL + "\\matoviy.jpg"));
+                anchorPane.setStyle("-fx-background-color: #000000");
             }
 
 
