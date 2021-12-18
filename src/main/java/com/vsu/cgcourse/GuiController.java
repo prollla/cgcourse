@@ -41,6 +41,8 @@ public class GuiController {
 
     @FXML
     private AnchorPane anchorPane;
+    @FXML
+    private Button gameButton;
 
     @FXML
     private Button changeButton;
@@ -50,10 +52,6 @@ public class GuiController {
 
     @FXML
     private  Button loadButton;
-
-
-    @FXML
-    private  ImageView imageTop;
 
     @FXML
     private Canvas canvas;
@@ -89,6 +87,7 @@ public class GuiController {
             camera.setAspectRatio((float) (width / height));
             if (mesh != null) {
                 RenderEngine.render(canvas.getGraphicsContext2D(), camera, mesh, (int) width, (int) height);
+                canvas.getGraphicsContext2D().setStroke(Color.PINK);
             }
         });
 
@@ -99,15 +98,13 @@ public class GuiController {
             if(mouseClick==0){
                 mouseClick++;
                 canvas.getGraphicsContext2D().setStroke(Color.BLACK);
-                imageTop.setImage(new Image(URL + "\\gubka.jpg"));
                 anchorPane.setStyle("-fx-background-color: #FFFFFF");
 
             }
             else{
                 mouseClick--;
                 canvas.getGraphicsContext2D().setStroke(Color.PINK);
-                imageTop.setImage(new Image(URL + "\\matoviy.jpg"));
-                anchorPane.setStyle("-fx-background-color: #000000");
+                anchorPane.setStyle("-fx-background-color:  #808080");
             }
 
 
@@ -151,6 +148,24 @@ public class GuiController {
                 windowCall(exception.getMessage());
             }
         });
+        gameButton.setOnAction(event -> {
+            Stage stage;
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/name.fxml"));
+            Parent parent = null;
+            try {
+                parent = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("PlayGame");
+            stage.setResizable(false);
+            assert parent != null;
+            stage.setScene(new Scene(parent));
+            stage.show();
+        });
+
     }
 
 

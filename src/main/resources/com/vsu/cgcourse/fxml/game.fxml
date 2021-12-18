@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="800" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vsu.cgcourse.GameController">
+   <children>
+      <ImageView fitHeight="915.0" fitWidth="1514.0" pickOnBounds="true">
+         <image>
+            <Image url="@../photos/road.jpg" />
+         </image>
+      </ImageView>
+      <MenuBar layoutY="2.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Setup">
+            <items>
+              <MenuItem fx:id="startGame" mnemonicParsing="false" text="Start Game" />
+                  <MenuItem fx:id="loadGame" mnemonicParsing="false" text="Load Car" />
+                  <MenuItem fx:id="loadObstacle" mnemonicParsing="false" text="Load Obstacle" />
+                  <MenuItem fx:id="getResult" mnemonicParsing="false" text="Get Result">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="H" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Controls">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#moveLeft" text="Left">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="A" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#moveRight" text="Right">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="D" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Level of difficulty">
+               <items>
+                  <MenuItem fx:id="easy" mnemonicParsing="false" text="Easy" />
+                  <MenuItem fx:id="simple" mnemonicParsing="false" text="Simple" />
+                  <MenuItem fx:id="unreal" mnemonicParsing="false" text="Unreal" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane layoutX="1367.0" layoutY="2.0" prefHeight="89.0" prefWidth="147.0" style="-fx-background-color: #FFFFFF;" />
+      <Label fx:id="hpLabel" layoutX="1367.0" layoutY="-2.0" prefHeight="89.0" prefWidth="147.0">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></Label>
+      <Canvas fx:id="canvas" height="849.0" layoutY="66.0" width="1514.0" />
+   </children>
+</AnchorPane>
